@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TEST - 1</title>
+  </head>
+  <body>
+    <!-- ... existing HTML ... -->
+    <div id="root"></div>
+
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    
+    <!-- Load Babel for JSX support -->
+    <script
+      src="https://unpkg.com/@babel/standalone/babel.min.js"
+      crossorigin
+    ></script>
+
+    <!-- React App Script -->
+    <script type="text/babel" src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post Data to API</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      #result {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Enter your number to get response</h1>
+    <form id="apiForm">
+      <label for="phonenumber">Phone Number:</label>
+      <input type="text" id="phonenumber" name="phonenumber" required />
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="result">
+      <h2>Response Data:</h2>
+      <pre id="headers"></pre>
+    </div>
+
+    <script>
+      document
+        .getElementById("apiForm")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          const phonenumber = document.getElementById("phonenumber").value;
+          const resultContainer = document.getElementById("headers");
+
+          try {
+            const response = await fetch("https://chimpu.online/api/post.php", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                phonenumber,
+              }),
+            });
+
+            console.log();
+
+            resultContainer.innerHTML = await response.text()
+          } catch (error) {
+            resultContainer.textContent = `Error: ${error.message}`;
+          }
+        });
+    </script>
+  </body>
+</html>
